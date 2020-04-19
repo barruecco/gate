@@ -7,14 +7,12 @@ import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.util.MimeTypeUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/gate/*")
 public class GateController {
 
     final
@@ -22,6 +20,11 @@ public class GateController {
 
     public GateController(GateRepository gateRepository) {
         this.gateRepository = gateRepository;
+    }
+
+    @GetMapping("/test")
+    String testMapping() {
+        return "Hello! this is gate!";
     }
 
     @GetMapping("/passed")

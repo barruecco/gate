@@ -3,7 +3,7 @@ server:
 spring:
   data:
     rest:
-      basePath: /api
+      basePath: /gate/api
   profiles: default
   cloud:
     stream:
